@@ -5,14 +5,15 @@ import express from "express";
 import cors from "cors";
 import productRoutes from "./routes/productRoutes.js";
 import jsonpkg from "body-parser";
+import dotenv from "dotenv";
+dotenv.config();
 
 const { json } = jsonpkg;
 const { connect } = pkg;
 const app = express();
 const PORT = 8081;
 
-const dbURI =
-	"mongodb+srv://collinh89:618Cash9209414@project-storefront-clus.dm3oiym.mongodb.net/Project-Storefront-Database?retryWrites=true&w=majority";
+const dbURI = process.env.DB_URL;
 
 connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(function (result) {
