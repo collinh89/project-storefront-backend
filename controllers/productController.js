@@ -1,10 +1,12 @@
 import Product from "../models/product.js";
 
 const product_get_all = (req, res) => {
+	// console.log(req, res);
+	// Product.find().then()
 	Product.find()
-		.sort({ createdAt: -1 })
 		.then((result) => {
 			res.status(200).send(result);
+			console.log(result);
 		})
 		.catch((err) => {
 			res

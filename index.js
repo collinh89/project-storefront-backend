@@ -1,6 +1,6 @@
 // const { MongoClient, ServerApiVersion } = require("mongodb");
 import { MongoClient, ServerApiVersion } from "mongodb";
-import pkg from "mongoose";
+import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import productRoutes from "./routes/productRoutes.js";
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const { json } = jsonpkg;
-const { connect } = pkg;
+const { connect } = mongoose;
 const app = express();
 const PORT = 8081;
 
@@ -39,3 +39,4 @@ app.use(json());
 
 //product routes
 app.use("/product", productRoutes);
+app.use("/product/getAll", productRoutes);
