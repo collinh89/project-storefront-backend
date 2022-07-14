@@ -11,7 +11,7 @@ dotenv.config();
 const { json } = jsonpkg;
 const { connect } = mongoose;
 const app = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 const dbURI = process.env.DB_URL;
 
